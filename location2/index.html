@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<h1>HTML DOM Events</h1>
+<h2>The onload Event</h2>
+
+<script>
+
+let position, marker, options, map, overlay, timer = null;
+const container = document.getElementById('MAP');
+let content = "<div id='label'>등록을 위해 마커를 클릭해주세요</div>";
+const url = "https://ins404.cafe24.com/theme/blackcode/img/";
+
+// HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+if (navigator.geolocation) {
+        msg = "good.";
+        alert(msg);
+
+    }, function(error){
+        
+        // 오류 로그
+        
+        let msg = "";
+    
+        switch(error.code) {
+          case error.PERMISSION_DENIED:
+            msg = "이 기기에서는 위치 서비스가 비활성화되어 있습니다.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            msg =  "내부 정보에서 일부가 오류가 났습니다.";
+            break;
+          case error.TIMEOUT:
+            msg =  "timed out!!!";
+            break;
+          case error.UNKNOWN_ERROR:
+            msg =  "An unknown error occurred.";
+            break;
+        }
+
+        alert(msg);
+        
+    });
+    
+}else{
+    alert("휴대폰의 [위치] 기능을 켜주세요");
+}
+</script>
+</body>
+</html>
